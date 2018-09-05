@@ -1,28 +1,70 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, Animated } from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Dimensions,
+  Image,
+  TouchableOpacity,
+  Animated,
+} from 'react-native';
 
 import DoubleTap from './DoubleTap';
 
 const w = Dimensions.get('window');
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  iconRow: {
+    flexDirection: 'row',
+    alignSelf: 'stretch',
+    marginTop: 10,
+    paddingVertical: 5,
+    paddingHorizontal: 15,
+  },
+  heartIcon: {
+    width: 20,
+    height: 20,
+  },
+  overlay: {
+    position: 'absolute',
+    alignItems: 'center',
+    justifyContent: 'center',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+  },
+  overlayHeart: {
+    tintColor: '#fff',
+  },
+});
+
 export default class App extends React.Component {
   state = {
     liked: false,
   };
+
   animatedValue = new Animated.Value(0);
 
-  toggleLike = () => this.setState(state => {
-    const newLiked = !state.liked;
+  toggleLike = () => {
+    this.setState((state) => {
+      const newLiked = !state.liked;
 
-    if (newLiked) {
-      Animated.sequence([
-        Animated.spring(this.animatedValue, { toValue: 1 }),
-        Animated.spring(this.animatedValue, { toValue: 0 }),
-      ]).start();
-    }
+      if (newLiked) {
+        Animated.sequence([
+          Animated.spring(this.animatedValue, { toValue: 1 }),
+          Animated.spring(this.animatedValue, { toValue: 0 }),
+        ]).start();
+      }
 
-    return { liked: newLiked };
-  });
+      return { liked: newLiked };
+    });
+  }
 
   renderOverlay = () => {
     const imageStyles = [
@@ -33,10 +75,10 @@ export default class App extends React.Component {
           {
             scale: this.animatedValue.interpolate({
               inputRange: [0, 1],
-              outputRange: [0.7, 1.5]
+              outputRange: [0.7, 1.5],
             }),
-          }
-        ]
+          },
+        ],
       },
     ];
 
@@ -76,35 +118,3 @@ export default class App extends React.Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  iconRow: {
-    flexDirection: 'row',
-    alignSelf: 'stretch',
-    marginTop: 10,
-    paddingVertical: 5,
-    paddingHorizontal: 15,
-  },
-  heartIcon: {
-    width: 20,
-    height: 20,
-  },
-  overlay: {
-    position: 'absolute',
-    alignItems: 'center',
-    justifyContent: 'center',
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
-  },
-  overlayHeart: {
-    tintColor: '#fff'
-  },
-});
