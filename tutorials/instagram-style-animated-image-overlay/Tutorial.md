@@ -5,7 +5,7 @@ When you like a picture on Instagram a heart quickly scales and fades in over th
 ![Final Result](tutorial-assets/03.gif)
 
 ## Getting Started
-This tutorial builds on top of a [previous tutorial](TODO:) in which we implement a double tap component.
+This tutorial builds on top of a [previous tutorial](https://github.com/HandlebarLabs/react-native-examples-and-tutorials/blob/master/tutorials/instagram-style-double-tap/Tutorial.md) in which we implement a double tap component.
 
 To get started, create a new project with Create React Native App.
 
@@ -188,7 +188,7 @@ That leaves us with the following.
 
 ![Step 3](tutorial-assets/03.gif)
 
-The final code can be found on [Github](TODO:)
+The final code can be found on [Github](https://github.com/HandlebarLabs/react-native-examples-and-tutorials/tree/master/tutorials/instagram-style-animated-image-overlay)
 
 --
 
