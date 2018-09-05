@@ -102,7 +102,7 @@ On our component we’ll track the last tap in a variable named `lastTap`. We’
 ```javascript
 export default class App extends React.Component {
   // ...
-	lastTap = null;
+  lastTap = null;
   // ...
 }
 ```
@@ -116,7 +116,7 @@ Upon a successful double tap we’ll call the `this.toggleLike()` function other
 ```javascript
 export default class App extends React.Component {
   // ...
-	lastTap = null;
+  lastTap = null;
   handleDoubleTap = () => {
     const now = Date.now();
     const DOUBLE_PRESS_DELAY = 300;
@@ -134,8 +134,8 @@ We then need to wrap our `Image` component in a `TouchableWithoutFeedback` (make
 
 ```javacript
 render() {
-	return (
-		{/* ... */}
+  return (
+    {/* ... */}
 		<TouchableWithoutFeedback onPress={this.handleDoubleTap}>
       	<Image
           	source={{ uri: `https://images.pexels.com/photos/671557/pexels-photo-671557.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=${w.width}` }}
@@ -169,7 +169,7 @@ import React from 'react';
 import { TouchableWithoutFeedback } from 'react-native';
 
 export default class DoubleTap extends React.Component {
-   render() {
+  render() {
 
   }
 };
