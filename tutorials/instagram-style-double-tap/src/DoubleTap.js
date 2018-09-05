@@ -26,4 +26,4 @@ export default class DoubleTap extends React.Component {
       </TouchableWithoutFeedback>
     );
   }
-};
+}
