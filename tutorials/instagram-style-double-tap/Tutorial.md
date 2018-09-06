@@ -1,4 +1,5 @@
 # Instagram Style Double Tap with React Native
+There are a host of ways to detect a tap in React Native - but how do you detect a double tap? Detecting double taps has a host of uses - like liking a picture, causing a scroll to top in a tab, etc. Let's set up double tap detection.
 
 ![Demo](tutorial-assets/demo.gif)
 
