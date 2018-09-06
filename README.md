@@ -32,7 +32,19 @@ A single place to find all of the React Native tutorials created at Handlebar La
 
 * React Native FlatList Grid (March 13, 2018) - [video tutorial](https://www.youtube.com/watch?v=8wv0kjsirso), [code](https://snack.expo.io/@spencercarli/react-native-flatlist-grid)
 
+* Fade in an Image with React Native with the Animated API (March 13, 2018) - [video tutorial](https://www.youtube.com/watch?v=vzPmI0GCDPM), [code](https://snack.expo.io/@spencercarli/fade-in-an-image-with-react-native-with-the-animated-api)
+
+* iPhoneX Compatibility in React Native with SafeAreaView (March 13, 2018) - [video tutorial](https://www.youtube.com/watch?v=C5gMteV-4-Y), [code](https://snack.expo.io/@spencercarli/iphonex-compatibility-in-react-native-with-safeareaview)
+
+* Dismiss the Keyboard in React Native from Anywhere (March 13, 2018) - [video tutorial](https://www.youtube.com/watch?v=z_FVCeWloig), [code](https://snack.expo.io/@spencercarli/dismiss-the-keyboard-in-react-native-from-anywhere)
+
 * How 💩 dad jokes helped me better understand immutable data (March 7, 2018) - [written tutorial](https://medium.com/handlebar-labs/how-dad-jokes-helped-me-better-understand-immutable-data-d4256a0d4eea), [code](https://snack.expo.io/B1N7JqT_G)
+
+* Perfect React Native Splash Screen (Android) (February 27, 2018) - [written tutorial](https://medium.com/handlebar-labs/how-to-add-a-splash-screen-to-a-react-native-app-ios-and-android-30a3cec835ae), [video tutorial](https://www.youtube.com/watch?v=yFrx8HZlNtI), [code](https://github.com/spencercarli/react-native-splash-screen-demo)
+
+* Perfect React Native Splash Screen (iOS) (February 27, 2018) - [written tutorial](https://medium.com/handlebar-labs/how-to-add-a-splash-screen-to-a-react-native-app-ios-and-android-30a3cec835ae), [video tutorial](https://www.youtube.com/watch?v=H0CC1UsvjDQ), [code](https://github.com/spencercarli/react-native-splash-screen-demo)
+
+* Configure Visual Studio Code for React Native Development (February 21, 2018) - [video tutorial](https://www.youtube.com/watch?v=_srHOd6EFQ0&t=20s)
 
 * How to Become a React Native Developer in 2018 (January 26, 2018) - [written tutorial](https://hackernoon.com/how-to-become-a-react-native-developer-in-2018-d9bc85e1d91f)
 
