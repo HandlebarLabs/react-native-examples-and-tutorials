@@ -3,7 +3,7 @@ import { View } from 'react-native';
 
 import Input from '../components/Input';
 import Button from '../components/Button';
-import { signIn } from '../util/auth';
+import * as Auth from '../api/auth';
 
 class SignIn extends React.Component {
   static defaultProps = {
@@ -11,9 +11,9 @@ class SignIn extends React.Component {
   };
 
   handleSignInPress = () => {
-    const { isInAppAuth, navigation } = this.props;
+    const { isInAppAuth, navigation, logIn } = this.props;
 
-    signIn();
+    logIn();
     if (isInAppAuth) {
       navigation.goBack(null); // close modal
     } else {
@@ -67,4 +67,13 @@ class SignIn extends React.Component {
   }
 }
 
-export default SignIn;
+export default props => (
+  <Auth.Consumer>
+    {({ logIn }) => (
+      <SignIn
+        {...props}
+        logIn={logIn}
+      />
+    )}
+  </Auth.Consumer>
+);

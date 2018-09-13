@@ -2,27 +2,13 @@ import React from 'react';
 import { View, Text } from 'react-native';
 
 import Button from '../components/Button';
-import { signOut, isSignedIn } from '../util/auth';
+import * as Auth from '../api/auth';
 
 class Profile extends React.Component {
-  state = {
-    isLoggedIn: false,
-    checkedIfLoggedIn: false,
-  };
-
-  componentDidMount() {
-    isSignedIn()
-      .then((authed) => {
-        this.setState({
-          checkedIfLoggedIn: true,
-          isLoggedIn: authed,
-        });
-      });
-  }
-
   handleSignOutPress = () => {
-    signOut();
-    this.props.navigation.navigate('LoggedOut');
+    const { logOut, navigation } = this.props;
+    logOut();
+    navigation.navigate('LoggedOut');
   }
 
   handleSignIn = () => {
@@ -53,11 +39,7 @@ class Profile extends React.Component {
   );
 
   render() {
-    const { checkedIfLoggedIn, isLoggedIn } = this.state;
-
-    if (!checkedIfLoggedIn) {
-      return null;
-    }
+    const { isLoggedIn } = this.props;
 
     if (isLoggedIn) {
       return this.renderLoggedIn();
@@ -67,4 +49,14 @@ class Profile extends React.Component {
   }
 }
 
-export default Profile;
+export default props => (
+  <Auth.Consumer>
+    {({ logOut, isLoggedIn }) => (
+      <Profile
+        {...props}
+        logOut={logOut}
+        isLoggedIn={isLoggedIn}
+      />
+    )}
+  </Auth.Consumer>
+);

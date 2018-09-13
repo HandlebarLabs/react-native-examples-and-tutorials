@@ -3,7 +3,7 @@ import { View } from 'react-native';
 
 import Input from '../components/Input';
 import Button from '../components/Button';
-import { signUp } from '../util/auth';
+import * as Auth from '../api/auth';
 
 class SignUp extends React.Component {
   static defaultProps = {
@@ -11,8 +11,8 @@ class SignUp extends React.Component {
   };
 
   handleSignUpPress = () => {
-    const { isInAppAuth, navigation } = this.props;
-    signUp();
+    const { isInAppAuth, navigation, createAccount } = this.props;
+    createAccount();
     if (isInAppAuth) {
       navigation.popToTop(); // go to top of auth stack
       navigation.goBack(null); // close modal
@@ -60,4 +60,13 @@ class SignUp extends React.Component {
   }
 }
 
-export default SignUp;
+export default props => (
+  <Auth.Consumer>
+    {({ createAccount }) => (
+      <SignUp
+        {...props}
+        createAccount={createAccount}
+      />
+    )}
+  </Auth.Consumer>
+);

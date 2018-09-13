@@ -1,18 +1,17 @@
 import React from 'react';
 import { View, Button } from 'react-native';
 
-import { isSignedIn } from '../util/auth';
+import * as Auth from '../api/auth';
 
 class Feed extends React.Component {
   handleLikePress = () => {
-    isSignedIn()
-      .then((authed) => {
-        if (authed) {
-          alert('liked');
-        } else {
-          this.props.navigation.navigate('InAppAuth');
-        }
-      });
+    const { isLoggedIn } = this.props;
+
+    if (isLoggedIn) {
+      alert('liked');
+    } else {
+      this.props.navigation.navigate('InAppAuth');
+    }
   }
 
   render() {
@@ -27,4 +26,13 @@ class Feed extends React.Component {
   }
 }
 
-export default Feed;
+export default props => (
+  <Auth.Consumer>
+    {({ isLoggedIn }) => (
+      <Feed
+        {...props}
+        isLoggedIn={isLoggedIn}
+      />
+    )}
+  </Auth.Consumer>
+);

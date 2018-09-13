@@ -1,18 +1,22 @@
 import React from 'react';
 import { ActivityIndicator, SafeAreaView } from 'react-native';
 
-import { isSignedIn } from '../util/auth';
+import * as Auth from '../api/auth';
 
 class Loading extends React.Component {
   componentDidMount() {
-    isSignedIn()
-      .then(authed => this.handleAuthNav(authed))
-      .catch(() => this.handleAuthNav(false));
+    this.handleAuthNav();
   }
 
-  handleAuthNav = (authed) => {
-    const { navigation } = this.props;
-    if (authed) {
+  componentDidUpdate() {
+    this.handleAuthNav();
+  }
+
+  handleAuthNav = () => {
+    const { navigation, isLoggedIn, checkedAuth } = this.props;
+    if (!checkedAuth) return;
+
+    if (isLoggedIn) {
       navigation.navigate('App');
     } else {
       navigation.navigate('LoggedOut');
@@ -28,4 +32,14 @@ class Loading extends React.Component {
   }
 }
 
-export default Loading;
+export default props => (
+  <Auth.Consumer>
+    {({ isLoggedIn, checkedAuth }) => (
+      <Loading
+        {...props}
+        isLoggedIn={isLoggedIn}
+        checkedAuth={checkedAuth}
+      />
+    )}
+  </Auth.Consumer>
+);
