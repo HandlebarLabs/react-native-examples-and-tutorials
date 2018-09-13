@@ -13,9 +13,9 @@ class Loading extends React.Component {
   handleAuthNav = (authed) => {
     const { navigation } = this.props;
     if (authed) {
-      navigation.navigate('AppTabs');
+      navigation.navigate('App');
     } else {
-      navigation.navigate('AuthStack');
+      navigation.navigate('LoggedOut');
     }
   }
 

@@ -3,10 +3,22 @@ import { View } from 'react-native';
 
 import Input from '../components/Input';
 import Button from '../components/Button';
+import { signIn } from '../util/auth';
 
 class SignIn extends React.Component {
+  static defaultProps = {
+    isInAppAuth: false,
+  };
+
   handleSignInPress = () => {
-    this.props.navigation.navigate('AppTabs');
+    const { isInAppAuth, navigation } = this.props;
+
+    signIn();
+    if (isInAppAuth) {
+      navigation.goBack(null); // close modal
+    } else {
+      navigation.navigate('App');
+    }
   };
 
   handleSignUpPress = () => {
@@ -14,10 +26,12 @@ class SignIn extends React.Component {
   };
 
   handleBrowsePress = () => {
-    this.props.navigation.navigate('AppTabs');
+    this.props.navigation.navigate('App');
   };
 
   render() {
+    const { isInAppAuth } = this.props;
+
     return (
       <View>
         <Input
@@ -40,12 +54,14 @@ class SignIn extends React.Component {
           size="large"
           onPress={this.handleSignUpPress}
         />
-        <Button
-          text="Browse"
-          theme="CLEAR"
-          size="small"
-          onPress={this.handleBrowsePress}
-        />
+        {!isInAppAuth && (
+          <Button
+            text="Browse"
+            theme="CLEAR"
+            size="small"
+            onPress={this.handleBrowsePress}
+          />
+        )}
       </View>
     );
   }

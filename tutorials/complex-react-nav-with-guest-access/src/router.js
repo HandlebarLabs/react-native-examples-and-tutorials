@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   createBottomTabNavigator,
   createSwitchNavigator,
@@ -10,15 +11,7 @@ import Profile from './screens/Profile';
 import SignIn from './screens/SignIn';
 import SignUp from './screens/SignUp';
 
-const AuthStack = createStackNavigator({
-  SignIn: {
-    screen: SignIn,
-  },
-  SignUp: {
-    screen: SignUp,
-  },
-});
-
+// Logged In
 const FeedStack = createStackNavigator({
   Feed: {
     screen: Feed,
@@ -40,15 +33,47 @@ const AppTabs = createBottomTabNavigator({
   },
 });
 
+const InAppAuthStack = createStackNavigator({
+  SignIn: {
+    screen: props => <SignIn {...props} isInAppAuth />,
+  },
+  SignUp: {
+    screen: props => <SignUp {...props} isInAppAuth />,
+  },
+});
+
+const AppStack = createStackNavigator({
+  Tabs: {
+    screen: AppTabs,
+  },
+  InAppAuth: {
+    screen: InAppAuthStack,
+  },
+}, {
+  headerMode: 'none',
+  mode: 'modal',
+});
+
+// Logged Out
+const AuthStack = createStackNavigator({
+  SignIn: {
+    screen: SignIn,
+  },
+  SignUp: {
+    screen: SignUp,
+  },
+});
+
+// Main Navigator
 const AppNavigator = createSwitchNavigator({
   Loading: {
     screen: Loading,
   },
-  AuthStack: {
+  LoggedOut: {
     screen: AuthStack,
   },
-  AppTabs: {
-    screen: AppTabs,
+  App: {
+    screen: AppStack,
   },
 });
 
