@@ -15,12 +15,22 @@ import SignUp from './screens/SignUp';
 const FeedStack = createStackNavigator({
   Feed: {
     screen: Feed,
+    navigationOptions: {
+      headerTitle: 'Feed',
+    },
+  },
+}, {
+  cardStyle: {
+    backgroundColor: '#fff',
   },
 });
 
 const ProfileStack = createStackNavigator({
   Profile: {
     screen: Profile,
+    navigationOptions: {
+      headerTitle: 'Profile',
+    },
   },
 });
 

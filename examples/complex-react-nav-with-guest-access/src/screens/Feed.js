@@ -1,27 +1,58 @@
 import React from 'react';
-import { View, Button } from 'react-native';
+import { FlatList } from 'react-native';
 
 import * as Auth from '../api/auth';
+import { getPhotos } from '../api/photos';
+
+import Image from '../components/Image';
 
 class Feed extends React.Component {
-  handleLikePress = () => {
-    const { isLoggedIn } = this.props;
+  state = {
+    items: [],
+    loading: false,
+  };
 
-    if (isLoggedIn) {
-      alert('liked');
-    } else {
-      this.props.navigation.navigate('InAppAuth');
-    }
+  componentDidMount() {
+    getPhotos()
+      .then((results) => {
+        this.setState({
+          loading: false,
+          items: results.items,
+        });
+      });
   }
 
-  render() {
+  // handleLikePress = () => {
+  //   const { isLoggedIn } = this.props;
+
+  //   if (isLoggedIn) {
+  //     alert('liked');
+  //   } else {
+  //     this.props.navigation.navigate('InAppAuth');
+  //   }
+  // }
+
+  renderItem = ({ item }) => {
     return (
-      <View>
-        <Button
-          title="Like"
-          onPress={this.handleLikePress}
-        />
-      </View>
+      <Image
+        uri={item.imageUri}
+        username={item.username}
+        description={item.description}
+      />
+    );
+  };
+
+  render() {
+    const { items, loading } = this.state;
+
+    if (loading) return null;
+
+    return (
+      <FlatList
+        data={items}
+        renderItem={this.renderItem}
+        keyExtractor={item => item._id}
+      />
     );
   }
 }
