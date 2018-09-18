@@ -11,5 +11,6 @@ module.exports = {
         "react/destructuring-assignment": 0,
         "global-require": 0,
         "import/no-unresolved": 0,
+        "react/prefer-stateless-function": 0
     }
 };
