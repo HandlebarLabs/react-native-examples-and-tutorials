@@ -16,7 +16,7 @@ class Profile extends React.Component {
   }
 
   renderLoggedOut = () => (
-    <View>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>Log in to view this page</Text>
       <Button
         text="Sign In"
@@ -28,7 +28,7 @@ class Profile extends React.Component {
   );
 
   renderLoggedIn = () => (
-    <View>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Button
         text="Sign Out"
         theme="PRIMARY"

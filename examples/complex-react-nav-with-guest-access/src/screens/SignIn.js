@@ -49,9 +49,9 @@ class SignIn extends React.Component {
           onPress={this.handleSignInPress}
         />
         <Button
-          text="Sign Up"
-          theme="SECONDARY"
-          size="large"
+          text="New? Create an Account"
+          theme="CLEAR"
+          size="small"
           onPress={this.handleSignUpPress}
         />
         {!isInAppAuth && (

@@ -19,10 +19,6 @@ const FeedStack = createStackNavigator({
       headerTitle: 'Feed',
     },
   },
-}, {
-  cardStyle: {
-    backgroundColor: '#fff',
-  },
 });
 
 const ProfileStack = createStackNavigator({
@@ -46,9 +42,15 @@ const AppTabs = createBottomTabNavigator({
 const InAppAuthStack = createStackNavigator({
   SignIn: {
     screen: props => <SignIn {...props} isInAppAuth />,
+    navigationOptions: {
+      headerTitle: 'Sign In',
+    },
   },
   SignUp: {
     screen: props => <SignUp {...props} isInAppAuth />,
+    navigationOptions: {
+      headerTitle: 'Sign Up',
+    },
   },
 });
 
@@ -68,9 +70,15 @@ const AppStack = createStackNavigator({
 const AuthStack = createStackNavigator({
   SignIn: {
     screen: SignIn,
+    navigationOptions: {
+      headerTitle: 'Sign In',
+    },
   },
   SignUp: {
     screen: SignUp,
+    navigationOptions: {
+      headerTitle: 'Sign Up',
+    },
   },
 });
 

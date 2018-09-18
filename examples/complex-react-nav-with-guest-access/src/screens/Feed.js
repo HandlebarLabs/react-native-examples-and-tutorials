@@ -1,58 +1,29 @@
 import React from 'react';
-import { FlatList } from 'react-native';
+import { View, Text } from 'react-native';
 
 import * as Auth from '../api/auth';
-import { getPhotos } from '../api/photos';
-
-import Image from '../components/Image';
+import Button from '../components/Button';
 
 class Feed extends React.Component {
-  state = {
-    items: [],
-    loading: false,
-  };
+  handleProtectedAction = () => {
+    const { isLoggedIn } = this.props;
 
-  componentDidMount() {
-    getPhotos()
-      .then((results) => {
-        this.setState({
-          loading: false,
-          items: results.items,
-        });
-      });
+    if (isLoggedIn) {
+      alert('do a protected thing');
+    } else {
+      this.props.navigation.navigate('InAppAuth');
+    }
   }
 
-  // handleLikePress = () => {
-  //   const { isLoggedIn } = this.props;
-
-  //   if (isLoggedIn) {
-  //     alert('liked');
-  //   } else {
-  //     this.props.navigation.navigate('InAppAuth');
-  //   }
-  // }
-
-  renderItem = ({ item }) => {
-    return (
-      <Image
-        uri={item.imageUri}
-        username={item.username}
-        description={item.description}
-      />
-    );
-  };
-
   render() {
-    const { items, loading } = this.state;
-
-    if (loading) return null;
-
     return (
-      <FlatList
-        data={items}
-        renderItem={this.renderItem}
-        keyExtractor={item => item._id}
-      />
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text>Feed</Text>
+        <Button
+          text="Protected Action"
+          onPress={this.handleProtectedAction}
+        />
+      </View>
     );
   }
 }
