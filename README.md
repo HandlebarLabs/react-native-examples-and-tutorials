@@ -6,6 +6,10 @@ A single place to find all of the React Native tutorials created at Handlebar La
 
 ## Tutorials
 
+* Building a React Native Multi-Theme Button (September 19, 2018) - [video tutorial](https://youtu.be/UUcaqUUeHWE), [code](https://github.com/HandlebarLabs/react-native-examples-and-tutorials/tree/master/tutorials/multi-theme-button)
+
+* Animated Image Overlay in React Native (September 12, 2018) - [written tutorial](https://medium.com/@spencer_carli/animated-image-overlay-in-react-native-9b8dd22a9c6e), [code](https://github.com/HandlebarLabs/react-native-examples-and-tutorials/tree/master/tutorials/instagram-style-animated-image-overlays)
+
 * Instagram Style Double Tap with React Native (September 6, 2018) - [written tutorial](https://medium.com/handlebar-labs/instagram-style-double-tap-with-react-native-49e757f68de), [code](https://github.com/HandlebarLabs/react-native-examples-and-tutorials/tree/master/tutorials/instagram-style-double-tap)
 
 * Install React Native Firebase Core [iOS] (August 16, 2018) - [video tutorial](https://www.youtube.com/watch?v=qiOGMcX6Xtw)
