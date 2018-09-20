@@ -4,23 +4,45 @@ import { StyleSheet, TouchableOpacity, Text } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#007991',
+    // borderWidth: 1,
+    // borderColor: '#007991',
     marginVertical: 10,
-    paddingVertical: 10,
-    marginHorizontal: 5,
+    marginHorizontal: 15,
+    borderRadius: 3,
+  },
+  containerClear: {
+    backgroundColor: 'transparent',
   },
   text: {
     textAlign: 'center',
     color: 'rgba(255, 255, 255, 0.9)',
     fontWeight: '600',
+    fontSize: 16,
+    padding: 15,
+  },
+  textClear: {
+    color: '#007991',
   },
 });
 
 class Btn extends React.Component {
+  static defaultProps = {
+    theme: 'default',
+  };
+
   render() {
-    const { onPress, text } = this.props;
+    const { onPress, text, theme } = this.props;
+    const containerStyles = [styles.container];
+    const textStyles = [styles.text];
+
+    if (theme === 'clear') {
+      containerStyles.push(styles.containerClear);
+      textStyles.push(styles.textClear);
+    }
+
     return (
-      <TouchableOpacity onPress={onPress} style={styles.container}>
-        <Text style={styles.text}>{text}</Text>
+      <TouchableOpacity onPress={onPress} style={containerStyles}>
+        <Text style={textStyles}>{text}</Text>
       </TouchableOpacity>
     );
   }

@@ -20,8 +20,6 @@ class Profile extends React.Component {
       <Text>Log in to view this page</Text>
       <Button
         text="Sign In"
-        theme="PRIMARY"
-        size="large"
         onPress={this.handleSignIn}
       />
     </View>
@@ -31,8 +29,6 @@ class Profile extends React.Component {
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Button
         text="Sign Out"
-        theme="PRIMARY"
-        size="large"
         onPress={this.handleSignOutPress}
       />
     </View>

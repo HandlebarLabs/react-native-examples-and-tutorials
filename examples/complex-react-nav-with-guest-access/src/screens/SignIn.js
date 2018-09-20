@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, SafeAreaView } from 'react-native';
 
 import Input from '../components/Input';
 import Button from '../components/Button';
@@ -33,36 +33,33 @@ class SignIn extends React.Component {
     const { isInAppAuth } = this.props;
 
     return (
-      <View>
-        <Input
-          label="EMAIL"
-          placeholder="john.doe@example.com"
-        />
-        <Input
-          label="PASSWORD"
-          placeholder="********"
-        />
-        <Button
-          text="Sign In"
-          theme="PRIMARY"
-          size="large"
-          onPress={this.handleSignInPress}
-        />
-        <Button
-          text="New? Create an Account"
-          theme="CLEAR"
-          size="small"
-          onPress={this.handleSignUpPress}
-        />
+      <SafeAreaView style={{ flex: 1, justifyContent: 'space-between' }}>
+        <View>
+          <Input
+            label="EMAIL"
+            placeholder="john.doe@example.com"
+          />
+          <Input
+            label="PASSWORD"
+            placeholder="********"
+          />
+          <Button
+            text="Sign In"
+            onPress={this.handleSignInPress}
+          />
+          <Button
+            text="New? Create an Account"
+            theme="clear"
+            onPress={this.handleSignUpPress}
+          />
+        </View>
         {!isInAppAuth && (
           <Button
             text="Browse"
-            theme="CLEAR"
-            size="small"
             onPress={this.handleBrowsePress}
           />
         )}
-      </View>
+      </SafeAreaView>
     );
   }
 }
