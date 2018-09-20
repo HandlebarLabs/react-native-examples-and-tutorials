@@ -28,7 +28,7 @@ class SignUp extends React.Component {
   render() {
     const { isInAppAuth } = this.props;
     return (
-      <SafeAreaView style={{ flex: 1, justifyContent: 'space-between' }}>
+      <SafeAreaView style={{ flex: 1, justifyContent: 'space-between', marginTop: 20 }}>
         <View>
           <Input
             label="EMAIL"

@@ -4,14 +4,13 @@ import { StyleSheet, TouchableOpacity, Text } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#007991',
-    // borderWidth: 1,
-    // borderColor: '#007991',
     marginVertical: 10,
     marginHorizontal: 15,
     borderRadius: 3,
   },
   containerClear: {
     backgroundColor: 'transparent',
+    marginVertical: 5,
   },
   text: {
     textAlign: 'center',
@@ -22,6 +21,7 @@ const styles = StyleSheet.create({
   },
   textClear: {
     color: '#007991',
+    paddingVertical: 5,
   },
 });
 
