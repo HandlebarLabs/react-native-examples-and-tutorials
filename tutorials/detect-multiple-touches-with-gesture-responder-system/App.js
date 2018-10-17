@@ -22,7 +22,7 @@ class MultiTap extends React.Component {
     numberOfTouches: 2,
   };
 
-  onStartShouldSetResponder = evt => {
+  onStartShouldSetResponder = (evt) => {
     if (evt.nativeEvent.touches.length === this.props.numberOfTouches) {
       return true;
     }
@@ -38,7 +38,8 @@ class MultiTap extends React.Component {
     return (
       <View
         onStartShouldSetResponder={this.onStartShouldSetResponder}
-        onResponderRelease={this.onResponderRelease}>
+        onResponderRelease={this.onResponderRelease}
+      >
         {this.props.children}
       </View>
     );
