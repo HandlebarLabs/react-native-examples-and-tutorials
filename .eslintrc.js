@@ -14,6 +14,7 @@ module.exports = {
         "react/prefer-stateless-function": 0,
         "prefer-destructuring": 0,
         "import/prefer-default-export": 0,
-        "no-underscore-dangle": 0
+        "no-underscore-dangle": 0,
+        "react/no-multi-comp": 0
     }
 };
