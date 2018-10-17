@@ -10,6 +10,14 @@ A single place to find all of the React Native tutorials created at Handlebar La
 
 ## Tutorials
 
+* Implement a Long Press Button with React Native's Gesture Responder System (October 17, 2018) - [video tutorial](https://www.youtube.com/watch?v=zYIvl9rEEK8), [code](https://github.com/HandlebarLabs/react-native-examples-and-tutorials/tree/master/tutorials/long-press-with-gesture-responder-system)
+
+* Detect Multiple Touches in React Native with the Gesture Responder System (October 17, 2018) - [video tutorial](https://www.youtube.com/watch?v=j7LK96nRXP4), [code](https://github.com/HandlebarLabs/react-native-examples-and-tutorials/tree/master/tutorials/detect-multiple-touches-with-gesture-responder-system)
+
+* Fix Broken React Native Projects in Xcode 10 (October 9, 2018) - [video tutorial](https://www.youtube.com/watch?v=sLMCmXT4i9A)
+
+* Progressive Image Loading (September 26, 2018) - [tutorial](https://medium.com/react-native-training/progressive-image-loading-in-react-native-e7a01827feb7), [code](https://github.com/HandlebarLabs/react-native-examples-and-tutorials/tree/master/tutorials/progressive-image-loading)
+
 * Building a React Native Multi-Theme Button (September 19, 2018) - [video tutorial](https://youtu.be/UUcaqUUeHWE), [code](https://github.com/HandlebarLabs/react-native-examples-and-tutorials/tree/master/tutorials/multi-theme-button)
 
 * Animated Image Overlay in React Native (September 12, 2018) - [written tutorial](https://medium.com/@spencer_carli/animated-image-overlay-in-react-native-9b8dd22a9c6e), [code](https://github.com/HandlebarLabs/react-native-examples-and-tutorials/tree/master/tutorials/instagram-style-animated-image-overlays)
@@ -59,8 +67,6 @@ A single place to find all of the React Native tutorials created at Handlebar La
 * Setup Continuous Integration with React Native (November 16, 2017) - [written tutorial](https://medium.com/react-native-training/setup-continuous-integration-with-react-native-50ad2f6145f4)
 
 ## Examples
-
-* Progressive Image Loading - [code](https://github.com/HandlebarLabs/react-native-examples-and-tutorials/tree/master/examples/progressive-image-loading)
 
 * Complex React Navigation with Guest Access - [code](https://github.com/HandlebarLabs/react-native-examples-and-tutorials/tree/master/examples/complex-react-nav-with-guest-access)
 
