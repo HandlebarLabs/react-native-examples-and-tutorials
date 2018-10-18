@@ -13,12 +13,14 @@ class SignIn extends React.Component {
   handleSignInPress = () => {
     const { isInAppAuth, navigation, logIn } = this.props;
 
-    logIn();
-    if (isInAppAuth) {
-      navigation.goBack(null); // close modal
-    } else {
-      navigation.navigate('App');
-    }
+    logIn()
+      .then(() => {
+        if (isInAppAuth) {
+          navigation.goBack(null); // close modal
+        } else {
+          navigation.navigate('App');
+        }
+      });
   };
 
   handleSignUpPress = () => {

@@ -12,13 +12,15 @@ class SignUp extends React.Component {
 
   handleSignUpPress = () => {
     const { isInAppAuth, navigation, createAccount } = this.props;
-    createAccount();
-    if (isInAppAuth) {
-      navigation.popToTop(); // go to top of auth stack
-      navigation.goBack(null); // close modal
-    } else {
-      navigation.navigate('App');
-    }
+    createAccount()
+      .then(() => {
+        if (isInAppAuth) {
+          navigation.popToTop(); // go to top of auth stack
+          navigation.goBack(null); // close modal
+        } else {
+          navigation.navigate('App');
+        }
+      });
   };
 
   handleBrowsePress = () => {

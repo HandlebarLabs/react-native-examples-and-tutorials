@@ -29,17 +29,17 @@ export class Provider extends React.Component {
     AsyncStorage.setItem('authData', JSON.stringify({ ...this.state, checkedAuth: false }));
   }
 
-  createAccount = () => {
-    this.setState({ isLoggedIn: true, checkedAuth: true });
-  };
+  createAccount = () => new Promise((resolve) => {
+    this.setState({ isLoggedIn: true, checkedAuth: true }, () => resolve());
+  })
 
-  logIn = () => {
-    this.setState({ isLoggedIn: true, checkedAuth: true });
-  }
+  logIn = () => new Promise((resolve) => {
+    this.setState({ isLoggedIn: true, checkedAuth: true }, () => resolve());
+  });
 
-  logOut = () => {
-    this.setState({ ...defaultState, checkedAuth: true });
-  }
+  logOut = () => new Promise((resolve) => {
+    this.setState({ ...defaultState, checkedAuth: true }, () => resolve());
+  })
 
   render() {
     return (

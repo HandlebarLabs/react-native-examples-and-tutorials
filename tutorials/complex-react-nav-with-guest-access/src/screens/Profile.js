@@ -7,8 +7,9 @@ import * as Auth from '../api/auth';
 class Profile extends React.Component {
   handleSignOutPress = () => {
     const { logOut, navigation } = this.props;
-    logOut();
-    navigation.navigate('LoggedOut');
+    logOut().then(() => {
+      navigation.navigate('LoggedOut');
+    });
   }
 
   handleSignIn = () => {
