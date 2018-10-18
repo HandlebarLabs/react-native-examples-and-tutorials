@@ -6,20 +6,12 @@ import Button from '../components/Button';
 import * as Auth from '../api/auth';
 
 class SignIn extends React.Component {
-  static defaultProps = {
-    isInAppAuth: false,
-  };
-
   handleSignInPress = () => {
-    const { isInAppAuth, navigation, logIn } = this.props;
+    const { logIn } = this.props;
 
     logIn()
       .then(() => {
-        if (isInAppAuth) {
-          navigation.goBack(null); // close modal
-        } else {
-          navigation.navigate('App');
-        }
+        alert('route to the correct screen');
       });
   };
 
@@ -27,13 +19,7 @@ class SignIn extends React.Component {
     this.props.navigation.navigate('SignUp');
   };
 
-  handleBrowsePress = () => {
-    this.props.navigation.navigate('App');
-  };
-
   render() {
-    const { isInAppAuth } = this.props;
-
     return (
       <SafeAreaView style={{ flex: 1, justifyContent: 'space-between', marginTop: 20 }}>
         <View>
@@ -55,12 +41,6 @@ class SignIn extends React.Component {
             onPress={this.handleSignUpPress}
           />
         </View>
-        {!isInAppAuth && (
-          <Button
-            text="Browse"
-            onPress={this.handleBrowsePress}
-          />
-        )}
       </SafeAreaView>
     );
   }

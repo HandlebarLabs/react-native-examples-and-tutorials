@@ -6,13 +6,7 @@ import Button from '../components/Button';
 
 class Feed extends React.Component {
   handleProtectedAction = () => {
-    const { isLoggedIn } = this.props;
-
-    if (isLoggedIn) {
-      alert('Authorized! Doing a protected thing.');
-    } else {
-      this.props.navigation.navigate('InAppAuth');
-    }
+    alert('authorized users only: protected action');
   }
 
   render() {
@@ -29,10 +23,9 @@ class Feed extends React.Component {
 
 export default props => (
   <Auth.Consumer>
-    {({ isLoggedIn }) => (
+    {() => (
       <Feed
         {...props}
-        isLoggedIn={isLoggedIn}
       />
     )}
   </Auth.Consumer>

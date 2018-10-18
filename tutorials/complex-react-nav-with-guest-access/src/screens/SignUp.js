@@ -6,29 +6,15 @@ import Button from '../components/Button';
 import * as Auth from '../api/auth';
 
 class SignUp extends React.Component {
-  static defaultProps = {
-    isInAppAuth: false,
-  };
-
   handleSignUpPress = () => {
-    const { isInAppAuth, navigation, createAccount } = this.props;
+    const { createAccount } = this.props;
     createAccount()
       .then(() => {
-        if (isInAppAuth) {
-          navigation.popToTop(); // go to top of auth stack
-          navigation.goBack(null); // close modal
-        } else {
-          navigation.navigate('App');
-        }
+        alert('go to correct screen');
       });
   };
 
-  handleBrowsePress = () => {
-    this.props.navigation.navigate('App');
-  };
-
   render() {
-    const { isInAppAuth } = this.props;
     return (
       <SafeAreaView style={{ flex: 1, justifyContent: 'space-between', marginTop: 20 }}>
         <View>
@@ -49,12 +35,6 @@ class SignUp extends React.Component {
             onPress={this.handleSignUpPress}
           />
         </View>
-        {!isInAppAuth && (
-          <Button
-            text="Browse"
-            onPress={this.handleBrowsePress}
-          />
-        )}
       </SafeAreaView>
     );
   }

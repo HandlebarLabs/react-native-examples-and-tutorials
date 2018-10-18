@@ -1,48 +1,24 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 
 import Button from '../components/Button';
 import * as Auth from '../api/auth';
 
 class Profile extends React.Component {
   handleSignOutPress = () => {
-    const { logOut, navigation } = this.props;
-    logOut().then(() => {
-      navigation.navigate('LoggedOut');
-    });
+    const { logOut } = this.props;
+    logOut();
   }
-
-  handleSignIn = () => {
-    this.props.navigation.navigate('InAppAuth');
-  }
-
-  renderLoggedOut = () => (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Log in to view this page</Text>
-      <Button
-        text="Sign In"
-        onPress={this.handleSignIn}
-      />
-    </View>
-  );
-
-  renderLoggedIn = () => (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Button
-        text="Sign Out"
-        onPress={this.handleSignOutPress}
-      />
-    </View>
-  );
 
   render() {
-    const { isLoggedIn } = this.props;
-
-    if (isLoggedIn) {
-      return this.renderLoggedIn();
-    }
-
-    return this.renderLoggedOut();
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Button
+          text="Sign Out"
+          onPress={this.handleSignOutPress}
+        />
+      </View>
+    );
   }
 }
 
