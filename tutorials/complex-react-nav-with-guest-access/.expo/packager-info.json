@@ -1,3 +1,9 @@
 {
-  "expoServerPort": null
+  "devToolsPort": 19002,
+  "expoServerPort": 19000,
+  "packagerPort": 19001,
+  "packagerPid": 29567,
+  "expoServerNgrokUrl": "https://ub-jxc.mybetterjourney.complex-react-nav-with-guest-access.exp.direct",
+  "packagerNgrokUrl": "https://packager.ub-jxc.mybetterjourney.complex-react-nav-with-guest-access.exp.direct",
+  "ngrokPid": 29849
 }
