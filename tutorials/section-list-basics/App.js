@@ -4,7 +4,7 @@ import {
   Text,
   View,
   SafeAreaView,
-  ScrollView,
+  // ScrollView,
   SectionList,
 } from 'react-native';
 
