@@ -21,7 +21,7 @@ class App extends React.Component {
           onPress={() => this.props.alert({
             title: 'Title',
             body: 'This body text',
-            display: 'bottom', // top, modal
+            display: 'top', // bottom, top, modal
             // display: 'modal',
             ctaText: 'Confirm',
             ctaOnPress: () => alert('pressed cta')
