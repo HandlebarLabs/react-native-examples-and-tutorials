@@ -60,6 +60,7 @@ const initialState = {
   ctaOnPress: null,
   ctaText: '',
   contentHeight: w.height,
+  theme: null,
 };
 
 export class AlertProvider extends React.Component {
@@ -72,10 +73,19 @@ export class AlertProvider extends React.Component {
     body = '',
     display = 'bottom', // top, modal
     ctaText = '',
-    ctaOnPress = null
+    ctaOnPress = null,
+    theme = null,
   }) => {
     // alert('alert');
-    this.setState({ title, body, visible: true, display, ctaText, ctaOnPress }, () => {
+    this.setState({
+      title,
+      body,
+      visible: true,
+      display,
+      ctaText,
+      ctaOnPress,
+      theme,
+    }, () => {
       Animated.timing(this.animatedValue, {
         toValue: 1,
         useNativeDriver: true,
@@ -99,13 +109,37 @@ export class AlertProvider extends React.Component {
     this.setState({ contentHeight: height });
   }
 
+  getCustomStyles = () => {
+    const { customStyles } = this.props;
+    const { theme } = this.state;
+
+    const container = [];
+    const text = [];
+
+    if (theme) {
+      const themeStyles = customStyles[theme];
+      container.push(themeStyles.container);
+      text.push(themeStyles.text);
+    }
+
+    return { container, text };
+  }
+
   renderBody = () => {
     const { title, body, ctaText, ctaOnPress } = this.state;
 
+    const titleStyles = [styles.text];
+    const bodyStyles = [styles.body];
+
+    const { text } = this.getCustomStyles();
+
+    titleStyles.push(text);
+    bodyStyles.push(text);
+
     return (
       <React.Fragment>
-        <Text style={styles.title}>{title}</Text>
-        <Text style={styles.body}>{body}</Text>
+        <Text style={titleStyles}>{title}</Text>
+        <Text style={bodyStyles}>{body}</Text>
         {ctaOnPress && (
           <Button
             title={ctaText}
@@ -119,12 +153,35 @@ export class AlertProvider extends React.Component {
     );
   }
 
-  render() {
-    const { visible, display, contentHeight } = this.state;
+  renderModal = () => {
+    const modalStyles = [styles.modal, {
+      opacity: this.animatedValue,
+      transform: [
+        {
+          scale: this.animatedValue.interpolate({
+            inputRange: [0, 1],
+            outputRange: [0.5, 1],
+          }),
+        },
+      ],
+    }];
+
+    return (
+      <TouchableWithoutFeedback onPress={this.close}>
+        <View style={styles.modalContainer}>
+          <Animated.View style={modalStyles}>
+            {this.renderBody()}
+          </Animated.View>
+        </View>
+      </TouchableWithoutFeedback>
+    );
+  }
+
+  renderNotModal = () => {
+    const { display, contentHeight } = this.state;
 
     const forceInset = {};
     const containerStyles = [styles.alertContainer];
-    const modalStyles = [styles.modal];
 
     if (display === 'bottom') {
       containerStyles.push(styles.bottom);
@@ -152,41 +209,30 @@ export class AlertProvider extends React.Component {
         ],
       });
       forceInset.top = 'always';
-    } else if (display === 'modal') {
-      modalStyles.push({
-        opacity: this.animatedValue,
-        transform: [
-          {
-            scale: this.animatedValue.interpolate({
-              inputRange: [0, 1],
-              outputRange: [0.5, 1],
-            }),
-          },
-        ],
-      });
     }
+
+    const { container } = this.getCustomStyles();
+    containerStyles.push(container);
+
+    return (
+      <Animated.View style={containerStyles} onLayout={this.onLayout}>
+        <TouchableWithoutFeedback onPress={this.close}>
+          <SafeAreaView forceInset={forceInset}>
+            {this.renderBody()}
+          </SafeAreaView>
+        </TouchableWithoutFeedback>
+      </Animated.View>
+    );
+  }
+
+  render() {
+    const { visible, display } = this.state;
 
     return (
       <AlertContext.Provider value={{ alert: this.alert }}>
         {this.props.children}
-        {visible && display === 'modal' && (
-          <TouchableWithoutFeedback onPress={this.close}>
-            <View style={styles.modalContainer}>
-              <Animated.View style={modalStyles}>
-                {this.renderBody()}
-              </Animated.View>
-            </View>
-          </TouchableWithoutFeedback>
-        )}
-        {visible && display !== 'modal' && (
-          <Animated.View style={containerStyles} onLayout={this.onLayout}>
-            <TouchableWithoutFeedback onPress={this.close}>
-              <SafeAreaView forceInset={forceInset}>
-                {this.renderBody()}
-              </SafeAreaView>
-            </TouchableWithoutFeedback>
-          </Animated.View>
-        )}
+        {visible && display === 'modal' && this.renderModal()}
+        {visible && display !== 'modal' && this.renderNotModal()}
       </AlertContext.Provider>
     );
   }
