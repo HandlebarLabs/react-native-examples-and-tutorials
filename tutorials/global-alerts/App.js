@@ -1,5 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Button,
+} from 'react-native';
 import { AlertProvider, AlertConsumer } from './GlobalAlerts';
 
 const styles = StyleSheet.create({
@@ -36,7 +41,7 @@ class App extends React.Component {
             display: 'modal', // bottom, top, modal
             // display: 'modal',
             ctaText: 'Confirm',
-            ctaOnPress: () => alert('pressed cta')
+            ctaOnPress: () => alert('pressed cta'),
           })}
         />
         <Button
@@ -47,7 +52,7 @@ class App extends React.Component {
             display: 'bottom', // bottom, top, modal
             // display: 'modal',
             ctaText: 'Confirm',
-            ctaOnPress: () => alert('pressed cta')
+            ctaOnPress: () => alert('pressed cta'),
           })}
         />
       </View>
@@ -83,7 +88,7 @@ export default () => (
         },
         body: {
 
-        }
+        },
       },
     }}
   >

@@ -1,5 +1,13 @@
 import React from 'react';
-import { View, StyleSheet, Text, TouchableWithoutFeedback, Button, Animated, Dimensions } from 'react-native';
+import {
+  View,
+  StyleSheet,
+  Text,
+  TouchableWithoutFeedback,
+  Button,
+  Animated,
+  Dimensions,
+} from 'react-native';
 import SafeAreaView from 'react-native-safe-area-view';
 
 const w = Dimensions.get('window');
@@ -126,7 +134,12 @@ export class AlertProvider extends React.Component {
   }
 
   renderBody = () => {
-    const { title, body, ctaText, ctaOnPress } = this.state;
+    const {
+      title,
+      body,
+      ctaText,
+      ctaOnPress,
+    } = this.state;
 
     const titleStyles = [styles.text];
     const bodyStyles = [styles.body];
