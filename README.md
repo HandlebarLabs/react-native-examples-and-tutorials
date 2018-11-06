@@ -10,6 +10,8 @@ A single place to find all of the React Native tutorials created at Handlebar La
 
 ## Tutorials
 
+* Building a Global Alert System in React Native (November 5, 2018) - [video series](https://www.youtube.com/watch?v=NsAQTbAV2zE&list=PLG02JlJZbKbtNnOx2vlUqF_HBve5HVlH1), [code](https://github.com/HandlebarLabs/react-native-examples-and-tutorials/tree/master/tutorials/global-alerts)
+
 * How to Use the SectionList Component - React Native Basics (October 24, 2018) - [video tutorial](https://www.youtube.com/watch?v=I-6oheM6cz0&feature=youtu.be), [code](https://github.com/HandlebarLabs/react-native-examples-and-tutorials/tree/master/tutorials/section-list-basics)
 
 * Implement a Long Press Button with React Native's Gesture Responder System (October 17, 2018) - [video tutorial](https://www.youtube.com/watch?v=zYIvl9rEEK8), [code](https://github.com/HandlebarLabs/react-native-examples-and-tutorials/tree/master/tutorials/long-press-with-gesture-responder-system)
