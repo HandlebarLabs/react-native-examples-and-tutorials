@@ -10,6 +10,8 @@ A single place to find all of the React Native tutorials created at Handlebar La
 
 ## Tutorials
 
+* Layout with Flexbox - React Native Basics (November 7, 2018) - [video](https://www.youtube.com/watch?v=qBFMnFXVw2c), [code](https://github.com/HandlebarLabs/react-native-examples-and-tutorials/tree/master/tutorials/flexbox-basics)
+
 * How to use the Image Component - React Native Basics (November 7, 2018) - [video](https://www.youtube.com/watch?v=v-3sNvMNosY), [code](https://github.com/HandlebarLabs/react-native-examples-and-tutorials/tree/master/tutorials/image-basics)
 
 * Building a Global Alert System in React Native (November 5, 2018) - [video series](https://www.youtube.com/watch?v=NsAQTbAV2zE&list=PLG02JlJZbKbtNnOx2vlUqF_HBve5HVlH1), [code](https://github.com/HandlebarLabs/react-native-examples-and-tutorials/tree/master/tutorials/global-alerts)
